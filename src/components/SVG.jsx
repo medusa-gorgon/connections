@@ -14,7 +14,7 @@ const SVG = ({ item, line, setLine }) => {
   }, [line, setLine]);
   return (
     <svg viewBox='0 0 100vw 100vh' height='100%' width='100%'>
-      <path fill='none' stroke='#000' strokeWidth='2' d={`M ${x},${y} L ${w},${y} ${line}`} />
+      <path fill='none' d={`M ${x},${y} L ${w},${y} ${line}`} />
     </svg>
   );
 };

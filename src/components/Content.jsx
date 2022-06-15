@@ -32,24 +32,12 @@ const Content = () => {
     <div>
       {shown &&
         clickedItems &&
-        clickedItems.map((item) => (
-          <SVG line={line} setLine={setLine} key={Math.floor(Math.random() * 10000)} item={item} />
-        ))}
+        clickedItems.map((item) => <SVG line={line} setLine={setLine} key={item.num} item={item} />)}
       <div className={styles.btns}>
-        <button
-          className={styles.btn}
-          onClick={(e) => {
-            onConnectClick(e);
-          }}
-        >
+        <button className={styles.btn} onClick={onConnectClick}>
           Connect
         </button>
-        <button
-          className={styles.btn}
-          onClick={(e) => {
-            onResetClick();
-          }}
-        >
+        <button className={styles.btn} onClick={onResetClick}>
           Reset
         </button>
       </div>

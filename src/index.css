@@ -16,4 +16,7 @@ svg {
   margin: 0;
   display: block;
   z-index: -1;
+  stroke: #000;
+  stroke-width: 2;
+  stroke-linejoin: round;
 }
