@@ -3,7 +3,7 @@ import styles from './Content.module.css';
 import Rectangle from './Rectangle';
 import SVG from './SVG';
 
-const Content = () => {
+const Content = ({ toggleTheme }) => {
   const numbers = [1, 2, 3, 4];
 
   const [clickedItems, setClickedItems] = useState([]);
@@ -18,7 +18,9 @@ const Content = () => {
 
   const onConnectClick = (e) => {
     if (clickedItems.length === 2 && clickedItems[0].get.y === clickedItems[1].get.y) setLine('');
-    setShown(true);
+    if (clickedItems !== []) {
+      setShown(true);
+    }
   };
 
   const onResetClick = () => {
@@ -29,29 +31,41 @@ const Content = () => {
   };
 
   return (
-    <div>
+    <div className={styles.content}>
       {shown &&
         clickedItems &&
         clickedItems.map((item) => <SVG line={line} setLine={setLine} key={item.num} item={item} />)}
-      <div className={styles.btns}>
-        <button className={styles.btn} onClick={onConnectClick}>
-          Connect
-        </button>
-        <button className={styles.btn} onClick={onResetClick}>
-          Reset
-        </button>
-      </div>
-      <div className={styles.content}>
-        {numbers.map((num) => (
-          <Rectangle
-            shown={shown}
-            reset={reset}
-            key={num}
-            num={num}
-            setReset={setReset}
-            onRectangleClick={onRectangleClick}
-          />
-        ))}
+      <div className={styles.main}>
+        <header className={styles.header}>
+          <div className={styles.switch}>
+            <input type='checkbox' onChange={toggleTheme} />
+            <label></label>
+          </div>
+
+          <div className={styles.btns}>
+            <button className={styles.btn} onClick={onConnectClick}>
+              Connect
+            </button>
+            <button className={styles.btn} onClick={onResetClick}>
+              Reset
+            </button>
+          </div>
+        </header>
+        <div className={styles.text}>Choose the rectangles you want to connect.</div>
+        <div className={styles.rectanglesBlock}>
+          <div className={styles.rectangles}>
+            {numbers.map((num) => (
+              <Rectangle
+                shown={shown}
+                reset={reset}
+                key={num}
+                num={num}
+                setReset={setReset}
+                onRectangleClick={onRectangleClick}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

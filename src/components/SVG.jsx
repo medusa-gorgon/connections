@@ -10,7 +10,7 @@ const SVG = ({ item, line, setLine }) => {
   useEffect(() => {
     if (line !== '') {
       item.num === 3 || item.num === 4 ? setLine(lineUp) : setLine(lineDown);
-    }
+    } // eslint-disable-next-line
   }, [line, setLine]);
   return (
     <svg viewBox='0 0 100vw 100vh' height='100%' width='100%'>
