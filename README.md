@@ -1,6 +1,6 @@
 # Connections
 
-Connecting four rectangles with SVG path.
+Connect rectangles of your choice by drawing an SVG path.
 
 ## Getting started
 

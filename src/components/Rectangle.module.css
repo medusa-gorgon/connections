@@ -1,7 +1,9 @@
 .rectangle {
   min-width: 120px;
   min-height: 100px;
+
   width: 52%;
+
   aspect-ratio: 5 / 3;
 
   background: linear-gradient(45deg, var(--secondary) 0%, var(--primary) 80%) var(--x, 0) / 200%;
@@ -14,11 +16,17 @@
   font-size: 10vw;
   font-family: 'Dosis', sans-serif;
   border-radius: 1rem;
-  /* box-shadow: 22px 16px 41px 0px rgba(0, 0, 0, 0.3); */
   box-shadow: 1.43vw 1.04vw 2.7vw 0 rgba(0, 0, 0, 0.3);
 }
 
 .rectangle:hover,
 .clicked {
   --x: 100%;
+}
+
+@media (max-width: 64rem) {
+  .rectangle {
+    max-height: 20vh;
+    font-size: 50px;
+  }
 }
